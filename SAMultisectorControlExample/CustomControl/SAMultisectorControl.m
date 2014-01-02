@@ -150,7 +150,6 @@ typedef struct{
     double newValue = procent * (trackingSector.maxValue - trackingSector.minValue) + trackingSector.minValue;
     
     if(trackingSectorStartMarker){
-        //защита от того, что бы начальный маркер перескакивал начало
         if(newValue > trackingSector.startValue){
             double diff = newValue - trackingSector.startValue;
             if(diff > ((trackingSector.maxValue - trackingSector.minValue)/2)){
@@ -160,7 +159,6 @@ typedef struct{
                 return YES;
             }
         }
-        //защита от перескакивания начального маркера через конечный
         if(newValue >= trackingSector.endValue){
             trackingSector.startValue = trackingSector.endValue;
             [self valueChangedNotification];
@@ -171,7 +169,6 @@ typedef struct{
         [self valueChangedNotification];
     }
     else{
-        //защита от того, что бы конечный маркер перескакивал через начало
         if(newValue < trackingSector.endValue){
             double diff = trackingSector.endValue - newValue;
             if(diff > ((trackingSector.maxValue - trackingSector.minValue)/2)){
@@ -181,7 +178,6 @@ typedef struct{
                 return YES;
             }
         }
-        //защита от перескакивания конечного маркера через начальный
         if(newValue <= trackingSector.startValue){
             trackingSector.endValue = trackingSector.startValue;
             [self valueChangedNotification];
