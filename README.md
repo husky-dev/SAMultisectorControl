@@ -1,11 +1,24 @@
 SAMultisectorControl
 ===========
 
-SAMultisectorControl allows you to create multiselect control with beautiful design ad circule structure. It's allows users in easy way changing values. Easy in use and have high ergonomic level.
+SAMultisectorControl allows you to create multiselect control with beautiful design and circule structure. It's allows users in easy way changing values. Easy in use and have high ergonomic level.
 
 <p align="center"><img title="SAMultisectorControl using" src="http://m.uploadedit.com/b026/1388680819305.gif"/></p>
 
-Code:
+### Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SAMultisectorControl in your projects. 
+
+Put code below to your Podfile:
+
+```ruby
+platform :ios, '7.0'
+pod "SAMultisectorControl"
+```
+
+## Example
+
+This code will add 3 select-circles to control's view:
 
 ```objectivec
 //colors for circles
@@ -35,25 +48,25 @@ sector3.endValue = 650.0;
 [self.multisectorControl addSector:sector3];
 ```
 
-###Main features
+## Main features
 - easy in use;
 - selecting minimum and maximum values;
 - flexible configurations.
 
-###Build Requirements
+## Build Requirements
 iOS >= 6.0
 
-###Frameworks
+## Frameworks
 - CoreGraphics
 - UIKit
 
-###Design
+## Design
 I'm don't own the desing of this UI control. Desing and concept was taking from [Dribbble](http://dribbble.com/shots/1350793-Search-Preferences-UI "Dribbble") 
 
-##License
+## License
 SAMultisectorControl is available under the MIT license. See the LICENSE file for more info.
 
-##Contact
+## Contact
 Jaroslav Khorishchenko<br>
 websnipter@gmail.com
 
