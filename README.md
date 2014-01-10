@@ -56,3 +56,4 @@ SAMultisectorControl is available under the MIT license. See the LICENSE file fo
 ##Contact
 Jaroslav Khorishchenko<br>
 websnipter@gmail.com
+
