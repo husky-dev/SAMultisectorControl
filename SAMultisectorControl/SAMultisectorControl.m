@@ -11,6 +11,8 @@
 #define saCircleLineWidth 2.0
 #define saMarkersLineWidth 2.0
 
+#define IS_OS_LOWER_7    ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+
 typedef struct{
     CGPoint circleCenter;
     CGFloat radius;
@@ -78,6 +80,7 @@ typedef struct{
     self.startAngle = toRadians(270);
     self.minCircleMarkerRadius = 10.0;
     self.maxCircleMarkerRadius = 50.0;
+    self.numbersAfterPoint = 0;
 }
 
 #pragma mark - Setters
@@ -284,8 +287,9 @@ typedef struct{
     CGContextStrokePath(context);
     
     //text on markers
-    NSString *startMarkerStr = [NSString stringWithFormat:@"%.0f", sector.startValue];
-    NSString *endMarkerStr = [NSString stringWithFormat:@"%.0f", sector.endValue];
+    NSString *markerStrTemplate = [@"%.0f" stringByReplacingOccurrencesOfString:@"0" withString:[NSString stringWithFormat:@"%i", self.numbersAfterPoint]];
+    NSString *startMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.startValue];
+    NSString *endMarkerStr = [NSString stringWithFormat:markerStrTemplate, sector.endValue];
     
     //drawing start marker's text
     [self drawString:startMarkerStr
@@ -352,10 +356,15 @@ typedef struct{
     CGFloat y = center.y - (size.height / 2);
     CGRect textRect = CGRectMake(x, y, size.width, size.height);
     
-    NSMutableDictionary *attr = [NSMutableDictionary new];
-    attr[UITextAttributeFont] = font;
-    attr[UITextAttributeTextColor] = color;
-    [s drawInRect:textRect withAttributes:attr];
+    if(IS_OS_LOWER_7){
+        [color set];
+        [s drawInRect:textRect withFont:font];
+    }else{
+        NSMutableDictionary *attr = [NSMutableDictionary new];
+        attr[UITextAttributeFont] = font;
+        attr[UITextAttributeTextColor] = color;
+        [s drawInRect:textRect withAttributes:attr];
+    }
 }
 
 

@@ -47,6 +47,8 @@ iOS >= 6.0
 - CoreGraphics
 - UIKit
 
+###Design
+I'm don't own the desing of this UI control. Desing and concept was taking from [Dribbble](http://dribbble.com/shots/1350793-Search-Preferences-UI "Dribbble") 
 
 ##License
 SAMultisectorControl is available under the MIT license. See the LICENSE file for more info.

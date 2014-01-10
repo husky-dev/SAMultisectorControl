@@ -18,6 +18,7 @@
 
 @property (nonatomic, readwrite) double sectorsRadius;
 @property (nonatomic, readwrite) double startAngle;
+@property (nonatomic, readwrite) NSUInteger numbersAfterPoint;
 @property (nonatomic, readwrite) double minCircleMarkerRadius;
 @property (nonatomic, readwrite) double maxCircleMarkerRadius;
 
