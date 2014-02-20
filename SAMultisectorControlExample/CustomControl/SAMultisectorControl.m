@@ -119,20 +119,24 @@ typedef struct{
     for(NSUInteger i = 0; i < sectorsArray.count; i++){
         SAMultisectorSector *sector = sectorsArray[i];
         NSUInteger position = i + 1;
-        SASectorDrawingInformation drawInf =[self sectorToDrawInf:sector position:position];
         
-        if([self touchInCircleWithPoint:touchPoint circleCenter:drawInf.endMarkerCenter]){
-            trackingSector = sector;
-            trackingSectorDrawInf = drawInf;
-            trackingSectorStartMarker = NO;
-            return YES;
-        }
+        if (sector.startValue < sector.endValue && sector.minValue < sector.maxValue) {
+
+            SASectorDrawingInformation drawInf =[self sectorToDrawInf:sector position:position];
         
-        if([self touchInCircleWithPoint:touchPoint circleCenter:drawInf.startMarkerCenter]){
-            trackingSector = sector;
-            trackingSectorDrawInf = drawInf;
-            trackingSectorStartMarker = YES;
-            return YES;
+            if([self touchInCircleWithPoint:touchPoint circleCenter:drawInf.endMarkerCenter]){
+                trackingSector = sector;
+                trackingSectorDrawInf = drawInf;
+                trackingSectorStartMarker = NO;
+                return YES;
+            }
+        
+            if([self touchInCircleWithPoint:touchPoint circleCenter:drawInf.startMarkerCenter]){
+                trackingSector = sector;
+                trackingSectorDrawInf = drawInf;
+                trackingSectorStartMarker = YES;
+                return YES;
+            }
         }
         
     }
@@ -221,7 +225,11 @@ typedef struct{
 - (void)drawRect:(CGRect)rect{
     for(int i = 0; i < sectorsArray.count; i++){
         SAMultisectorSector *sector = sectorsArray[i];
-        [self drawSector:sector atPosition:i+1];
+        
+        if (sector.startValue < sector.endValue && sector.minValue < sector.maxValue) {
+            [self drawSector:sector atPosition:i+1];
+        }
+        
     }
 }
 
