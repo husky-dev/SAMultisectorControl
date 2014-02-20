@@ -3,7 +3,7 @@ SAMultisectorControl
 
 SAMultisectorControl allows you to create multiselect control with beautiful design and circule structure. It's allows users in easy way changing values. Easy in use and have high ergonomic level.
 
-<p align="center"><img title="SAMultisectorControl using" src="http://m.uploadedit.com/b026/1388680819305.gif"/></p>
+<p align="center"><img title="SAMultisectorControl using" src="http://snipter.ho.ua/img/SAMultisectorControl-animation.gif"/></p>
 
 ### Installation with CocoaPods
 
