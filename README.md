@@ -61,7 +61,7 @@ iOS >= 6.0
 - UIKit
 
 ## Design
-I'm don't own the desing of this UI control. Desing and concept was taking from [Dribbble](http://dribbble.com/shots/1350793-Search-Preferences-UI "Dribbble") 
+The idea of circular range selectors was inspired by this [dribbble](http://dribbble.com/shots/1350793-Search-Preferences-UI "dribbble") experiment.
 
 ## License
 SAMultisectorControl is available under the MIT license. See the LICENSE file for more info.
