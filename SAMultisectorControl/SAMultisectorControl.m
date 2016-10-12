@@ -332,8 +332,8 @@ typedef struct{
     drawInf.startMarkerCenter = polarToDecart(drawInf.circleCenter, drawInf.radius, drawInf.circleOffsetAngle);
     drawInf.endMarkerCenter = polarToDecart(drawInf.circleCenter, drawInf.radius, drawInf.circleLineAngle);
     
-    CGFloat minMarkerRadius = self.sectorsRadius / 4.0;
-    CGFloat maxMarkerRadius = self.sectorsRadius / 2.0;
+    CGFloat minMarkerRadius = self.minCircleMarkerRadius;
+    CGFloat maxMarkerRadius = self.maxCircleMarkerRadius;
     
     drawInf.startMarkerRadius = ((drawInf.circleOffsetAngle/(self.startAngle + 2*M_PI)) * (maxMarkerRadius - minMarkerRadius)) + minMarkerRadius;
     drawInf.endMarkerRadius = ((drawInf.circleLineAngle/(self.startAngle + 2*M_PI)) * (maxMarkerRadius - minMarkerRadius)) + minMarkerRadius;
